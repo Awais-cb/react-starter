@@ -1,5 +1,8 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Important Notes
+Stopping a function from rerendering every time parent's state is changed [React memo] https://reactjs.org/docs/react-api.html#reactmemo
+
 ## Available Scripts
 
 In the project directory, you can run:
