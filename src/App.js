@@ -31,7 +31,14 @@ class App extends React.Component {
   }
 
   deleteNinja = (ninjaId) => {
-    console.log('Parent ' + ninjaId)
+    // We cannot directly manipulate state for deletion either so we need to use non destructive method (which should never alter the state object)
+    // This way we can get all elements out of array except one which we want to delete without directly modifying the state
+    let ninjas = this.state.ninjas.filter((ninja)=>{
+      return ninja.id !== ninjaId
+    })
+    this.setState({
+      ninjas: ninjas
+    })
   }
 
   render() {
