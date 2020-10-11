@@ -21,7 +21,7 @@ function Ninjas({ ninjas = [], deleteNinja }) {
   })
   return (
     <div className="ninjas mt-3">
-      <small>(child component)</small>
+      <small>(child component) {Math.random()}</small>
       <Table striped bordered hover>
         <thead>
           <tr>

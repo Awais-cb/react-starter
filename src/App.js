@@ -50,7 +50,8 @@ class App extends React.Component {
     return (
       <div className="app">
         <div className="container pt-5">
-          <small>(parent component)</small>
+          {/* Check how react renders on different events */}
+          <small>(parent component) {Math.random()}</small>
           <h3 className="text-center mt-2 mb-2">{welcomeMessage}</h3>
           {/* Functions as Props */}
           <AddNinja addNinja={this.addNinja} />

@@ -27,7 +27,7 @@ class AddNinja extends React.Component {
   render() {
     return (
       <div>
-        <small>(child component)</small>
+        <small>(child component) {Math.random()}</small>
         <Card>
           <Card.Body>
             <Card.Title>Add new ninja</Card.Title>
