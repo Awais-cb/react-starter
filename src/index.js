@@ -1,12 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+// Globally included css
+import './global/css/index.css';
+// Globally included sass
+import './global/scss/index.scss';
+// Importing component to use
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <App welcomeMessage="Welcome to react boiler plate"/>
   </React.StrictMode>,
   document.getElementById('root')
 );
