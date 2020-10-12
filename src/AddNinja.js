@@ -27,7 +27,7 @@ class AddNinja extends React.Component {
     this.props.addNinja(this.state)
   }
 
-  // Life cycle hooks
+  // Life cycle hooks start
   componentDidMount = () => {
     console.log('Form componentDidMount')
   }
@@ -59,6 +59,7 @@ class AddNinja extends React.Component {
 
   getSnapshotBeforeUpdate = () => {
     console.log('getSnapshotBeforeUpdate')
+    return null
   }
 
   // Used to handle errors gracefully helps rendering component instead of blank screen
@@ -67,6 +68,7 @@ class AddNinja extends React.Component {
     console.log(error, info)
     this.setState({ error, info })
   }
+  // Life cycle hooks end
 
   render() {
     return (
