@@ -8,7 +8,8 @@ class AddNinja extends React.Component {
     this.state = {
       name: null,
       age: null,
-      belt: null
+      belt: null,
+      randomAttribute: null
     }
   }
 
@@ -19,30 +20,59 @@ class AddNinja extends React.Component {
       [e.target.id]: e.target.value
     });
   }
-  
+
   handleSubmit = (e) => {
     e.preventDefault()
     // Functions as Props
     this.props.addNinja(this.state)
   }
 
-  componentDidMount() {
+  // Life cycle hooks
+  componentDidMount = () => {
     console.log('Form componentDidMount')
   }
-  
-  componentDidUpdate(prevProps, prevState, snapShot) {
+
+  componentDidUpdate = (prevProps, prevState, snapShot) => {
     console.log('Form componentDidUpdate')
-    console.log(prevProps, prevState)
   }
 
-  componentWillUnmount() {
+  componentWillUnmount = () => {
     console.log('Form componentWillUnmount')
+  }
+
+  shouldComponentUpdate = () => {
+    return true
+  }
+
+  // Allow us to copy props to state
+  static getDerivedStateFromProps = (props, state) => {
+    console.log('Form getDerivedStateFromProps')
+    /*
+    if (props.randomAttribute && state.randomAttribute !== state.randomAttribute) {
+      return {
+        randomAttribute: props.randomAttribute
+      }
+    }
+    */
+    return null
+  }
+
+  getSnapshotBeforeUpdate = () => {
+    console.log('getSnapshotBeforeUpdate')
+  }
+
+  // Used to handle errors gracefully helps rendering component instead of blank screen
+  componentDidCatch = (error, info) => {
+    console.log('componentDidCatch')
+    console.log(error, info)
+    this.setState({ error, info })
   }
 
   render() {
     return (
       <div>
         <small>(child component) {Math.random()}</small>
+        {(this.state.error) ? <p> {this.state.error.message} </p> : ''}
         <Card>
           <Card.Body>
             <Card.Title>Add new ninja</Card.Title>

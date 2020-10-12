@@ -57,18 +57,18 @@ class App extends React.Component {
 
   // Component lifecycle hooks
   // componentDidMount fire when component is mounted to the DOM
-  componentDidMount() {
+  componentDidMount = () => {
     console.log('Parent componentDidMount')
   }
 
   // componentDidUpdate fire when component's state/props are updated
-  componentDidUpdate(prevProps, prevState, snapShot) {
+  componentDidUpdate = (prevProps, prevState, snapShot) => {
     console.log('Parent  componentDidUpdate')
-    console.log(prevProps, prevState, snapShot)
+    // console.log(prevProps, prevState, snapShot)
   }
 
   // componentWillUnmount fire when component is take out of DOM 
-  componentWillUnmount() {
+  componentWillUnmount = () => {
     console.log('Parent componentWillUnmount')
   }
 
