@@ -19,11 +19,26 @@ class AddNinja extends React.Component {
       [e.target.id]: e.target.value
     });
   }
+  
   handleSubmit = (e) => {
     e.preventDefault()
     // Functions as Props
     this.props.addNinja(this.state)
   }
+
+  componentDidMount() {
+    console.log('Form componentDidMount')
+  }
+  
+  componentDidUpdate(prevProps, prevState, snapShot) {
+    console.log('Form componentDidUpdate')
+    console.log(prevProps, prevState)
+  }
+
+  componentWillUnmount() {
+    console.log('Form componentWillUnmount')
+  }
+
   render() {
     return (
       <div>

@@ -1,10 +1,12 @@
 import React from 'react';
 import { Table, Button } from 'react-bootstrap';
+// Importing component's custom css this css can affect other components too so write it carefully for this specific component
+import './local/css/Ninjas.css';
 // [UI/State less component]
 // Another type of destructuring with default parameters
 function Ninjas({ ninjas = [], deleteNinja }) {
   const ninjaList = ninjas.map(ninja => {
-    if (ninja.age > 20) {
+    if (ninja.age > 5) {
       return (
         <tr key={ninja.id}>
           <td>{ninja.id}</td>
@@ -22,7 +24,7 @@ function Ninjas({ ninjas = [], deleteNinja }) {
   return (
     <div className="ninjas mt-3">
       <small>(child component) {Math.random()}</small>
-      <Table striped bordered hover>
+      <Table striped bordered hover className="ninjas-table">
         <thead>
           <tr>
             <th>#</th>

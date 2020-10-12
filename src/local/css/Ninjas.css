@@ -1,0 +1,11 @@
+/* 
+This can still affect overall the app's so better not use component css for global scope
+body {
+    background: pink !important;
+} 
+*/
+
+/* writing css for component's scope */
+.ninjas .ninjas-table {
+    background: bisque;
+}
