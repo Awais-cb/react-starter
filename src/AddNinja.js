@@ -6,9 +6,9 @@ class AddNinja extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: null,
-      age: null,
-      belt: null,
+      name: '',
+      age: '',
+      belt: '',
       randomAttribute: null
     }
   }
@@ -25,6 +25,11 @@ class AddNinja extends React.Component {
     e.preventDefault()
     // Functions as Props
     this.props.addNinja(this.state)
+    this.setState({
+      name: '',
+      age: '',
+      belt: ''
+    });
   }
 
   // Life cycle hooks start
@@ -81,17 +86,17 @@ class AddNinja extends React.Component {
             <Form onSubmit={this.handleSubmit}>
               <Form.Group controlId="name">
                 <Form.Label>Name</Form.Label>
-                <Form.Control type="text" placeholder="Ninja Name" onChange={this.handleChange} />
+                <Form.Control type="text" placeholder="Ninja Name" onChange={this.handleChange} value={this.state.name} />
                 <Form.Text className="text-muted"> We'll never share your name/details with anyone else. </Form.Text>
               </Form.Group>
               <Form.Group controlId="age">
                 <Form.Label>Age</Form.Label>
-                <Form.Control type="number" placeholder="Ninja Age" onChange={this.handleChange} />
+                <Form.Control type="number" placeholder="Ninja Age" onChange={this.handleChange} value={this.state.age} />
                 <Form.Text className="text-muted"> Age should be greater than 20. </Form.Text>
               </Form.Group>
               <Form.Group controlId="belt">
                 <Form.Label>Belt</Form.Label>
-                <Form.Control type="text" placeholder="Ninja Belt" onChange={this.handleChange} />
+                <Form.Control type="text" placeholder="Ninja Belt" onChange={this.handleChange} value={this.state.belt}/>
               </Form.Group>
               <Button variant="primary" type="submit"> Add ninja </Button>
             </Form>
