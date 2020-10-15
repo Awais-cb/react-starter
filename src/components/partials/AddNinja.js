@@ -34,15 +34,15 @@ class AddNinja extends React.Component {
 
   // Life cycle hooks start
   componentDidMount = () => {
-    console.log('Form componentDidMount')
+    console.log('[CHILD COMPONENT] AddNinja componentDidMount')
   }
 
   componentDidUpdate = (prevProps, prevState, snapShot) => {
-    console.log('Form componentDidUpdate')
+    console.log('[CHILD COMPONENT] AddNinja componentDidUpdate')
   }
 
   componentWillUnmount = () => {
-    console.log('Form componentWillUnmount')
+    console.log('[CHILD COMPONENT] AddNinja componentWillUnmount')
   }
 
   shouldComponentUpdate = () => {
@@ -51,7 +51,7 @@ class AddNinja extends React.Component {
 
   // Allow us to copy props to state
   static getDerivedStateFromProps = (props, state) => {
-    console.log('Form getDerivedStateFromProps')
+    console.log('[CHILD COMPONENT] AddNinja getDerivedStateFromProps')
     /*
     if (props.randomAttribute && state.randomAttribute !== state.randomAttribute) {
       return {
@@ -63,13 +63,13 @@ class AddNinja extends React.Component {
   }
 
   getSnapshotBeforeUpdate = () => {
-    console.log('getSnapshotBeforeUpdate')
+    console.log('[CHILD COMPONENT] AddNinja getSnapshotBeforeUpdate')
     return null
   }
 
   // Used to handle errors gracefully helps rendering component instead of blank screen
   componentDidCatch = (error, info) => {
-    console.log('componentDidCatch')
+    console.log('[CHILD COMPONENT] AddNinja componentDidCatch')
     console.log(error, info)
     this.setState({ error, info })
   }

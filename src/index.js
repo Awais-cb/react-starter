@@ -10,7 +10,7 @@ import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App welcomeMessage="Welcome to react boiler plate"/>
+    <App />
   </React.StrictMode>,
   document.getElementById('root')
 );

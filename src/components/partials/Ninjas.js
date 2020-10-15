@@ -1,7 +1,7 @@
 import React from 'react';
 import { Table, Button } from 'react-bootstrap';
 // Importing component's custom css this css can affect other components too so write it carefully for this specific component
-import './local/css/Ninjas.css';
+import '../../local/css/Ninjas.css';
 // [UI/State less component]
 // Another type of destructuring with default parameters
 function Ninjas({ ninjas = [], deleteNinja, editNinja }) {
