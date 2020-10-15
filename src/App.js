@@ -11,6 +11,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      editNinja: false,
       ninjas: [
         { id: 1, name: 'Awais', age: 26, belt: 'black' },
         { id: 2, name: 'Hamza', age: 28, belt: 'blue' },
@@ -41,6 +42,13 @@ class App extends React.Component {
     this.setState({
       ninjas: ninjas
     })
+  }
+  
+  editNinja = (ninjaId) => {
+    console.log(ninjaId)
+    // this.setState({
+    //   ninjas: ninjas
+    // })
   }
 
   mountNinjasFrom = () => {
@@ -90,7 +98,7 @@ class App extends React.Component {
           </div>
           {/* Functions as Props */}
           {this.state.mountNinjasFrom ? <AddNinja addNinja={this.addNinja} /> : null}
-          <Ninjas ninjas={this.state.ninjas} deleteNinja={this.deleteNinja} />
+          <Ninjas ninjas={this.state.ninjas} deleteNinja={this.deleteNinja} editNinja={this.editNinja} />
         </div>
       </div>
     );

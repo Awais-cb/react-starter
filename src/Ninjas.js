@@ -4,7 +4,7 @@ import { Table, Button } from 'react-bootstrap';
 import './local/css/Ninjas.css';
 // [UI/State less component]
 // Another type of destructuring with default parameters
-function Ninjas({ ninjas = [], deleteNinja }) {
+function Ninjas({ ninjas = [], deleteNinja, editNinja }) {
   const ninjaList = ninjas.map(ninja => {
     if (ninja.age > 5) {
       return (
@@ -14,7 +14,12 @@ function Ninjas({ ninjas = [], deleteNinja }) {
           <td>{ninja.age}</td>
           <td>{ninja.belt}</td>
           {/* Stopping the function to auto invoke on page load */}
-          <td><Button variant="danger" size="sm" onClick={() => { deleteNinja(ninja.id) }}>Delete</Button></td>
+          <td>
+            <Button variant="primary" size="sm" onClick={() => { editNinja(ninja.id) }}>Edit</Button>
+          </td>
+          <td>
+            <Button variant="danger" size="sm" onClick={() => { deleteNinja(ninja.id) }} className="ml-2">Delete</Button>
+          </td>
         </tr>
       );
     } else {
@@ -31,7 +36,8 @@ function Ninjas({ ninjas = [], deleteNinja }) {
             <th>Name</th>
             <th>Age</th>
             <th>Belt</th>
-            <th>Actions</th>
+            <th>Edit</th>
+            <th>Delete</th>
           </tr>
         </thead>
         <tbody>
