@@ -1,6 +1,9 @@
 import React from 'react'
-import { Link, NavLink } from 'react-router-dom'
-const NavigationBar = () => {
+// { withRouter } is a higher order component which is a function which wraps other components and give them extra features
+import { Link, NavLink, withRouter } from 'react-router-dom'
+const NavigationBar = (props) => {
+    {/* Example of higher order component of react router named withRouter to access router props */}
+    console.log('[Router props example with withRouter]', props)
     return (
         <div>
             <nav className="navbar navbar-expand-lg navbar-dark bg-dark mb-5">
@@ -23,14 +26,16 @@ const NavigationBar = () => {
                             <NavLink className="nav-link" to="/ninjas">Ninjas</NavLink>
                         </li>
                     </ul>
-                    {/* <form className="form-inline">
+                    {/* 
+                    <form className="form-inline">
                         <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" />
                         <button className="btn btn-outline-info my-2 my-sm-0" type="submit">Search</button>
-                    </form> */}
+                    </form> 
+                    */}
                 </div>
             </nav>
         </div>
     )
 }
 
-export default NavigationBar;
+export default withRouter(NavigationBar);
