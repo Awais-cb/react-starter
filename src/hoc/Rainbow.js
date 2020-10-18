@@ -1,6 +1,6 @@
 import React from 'react'
 
-// It is  a higher order component/function which is going to randomize the text color of specific component
+// Concretely, a higher-order component is a function that takes a component and returns a new component.
 const Rainbow = (WrappedComponent) => {
     const colorClasses = ['primary', 'secondary', 'success', 'danger', 'warning', 'info', 'dark']
     const textColor = colorClasses[Math.floor(Math.random() * 5)]

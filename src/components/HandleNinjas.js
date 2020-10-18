@@ -19,6 +19,8 @@ class HandleNinjas extends React.Component {
       ],
       mountNinjasFrom: true
     }
+    // bind method is used to pass down "this" to a method this can be accessed without arrow function
+    this.editNinja = this.editNinja.bind(this)
   }
 
   // Functions as Props
@@ -44,8 +46,9 @@ class HandleNinjas extends React.Component {
     })
   }
 
-  editNinja = (ninjaId) => {
+  editNinja(ninjaId) {
     console.log(ninjaId)
+    console.log(this)
     // this.setState({
     //   ninjas: ninjas
     // })
@@ -88,17 +91,17 @@ class HandleNinjas extends React.Component {
     const { welcomeMessage } = this.props
     return (
       <div className="container">
-            {/* Check how react renders on different events */}
-            <small>(parent component) {Math.random()}</small>
-            <h3 className="text-center mt-2 mb-2">{welcomeMessage}</h3>
-            <div className="my-3">
-              <Button variant="primary" type="submit" onClick={this.mountNinjasFrom}> Add ninja </Button>
-              <Button variant="primary" type="submit" className="ml-2" onClick={this.unmountNinjasFrom}> Unmount form </Button>
-            </div>
-            {/* Functions as Props */}
-            {this.state.mountNinjasFrom ? <AddNinja addNinja={this.addNinja} /> : null}
-            <Ninjas ninjas={this.state.ninjas} deleteNinja={this.deleteNinja} editNinja={this.editNinja} />
-          </div>
+        {/* Check how react renders on different events */}
+        <small>(parent component) {Math.random()}</small>
+        <h3 className="text-center mt-2 mb-2">{welcomeMessage}</h3>
+        <div className="my-3">
+          <Button variant="primary" type="submit" onClick={this.mountNinjasFrom}> Add ninja </Button>
+          <Button variant="primary" type="submit" className="ml-2" onClick={this.unmountNinjasFrom}> Unmount form </Button>
+        </div>
+        {/* Functions as Props */}
+        {this.state.mountNinjasFrom ? <AddNinja addNinja={this.addNinja} /> : null}
+        <Ninjas ninjas={this.state.ninjas} deleteNinja={this.deleteNinja} editNinja={this.editNinja} />
+      </div>
     );
   }
 }
