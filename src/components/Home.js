@@ -1,6 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 import { Table, Button } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
 
 class Home extends React.Component {
   constructor(props) {
@@ -34,7 +35,12 @@ class Home extends React.Component {
           <tr key={post.id}>
             <td>{post.id}</td>
             <td>{post.userId}</td>
-            <td>{post.title}</td>
+            <td>
+              {/* Dynamic link */}
+              <Link to={"/post/"+post.id}>
+                {post.title}
+              </Link>
+            </td>
             <td>{post.body}</td>
             <td>
               <Button variant="primary" size="sm" onClick={() => { console.log('Edit') }}>Edit</Button>
