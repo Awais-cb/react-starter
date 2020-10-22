@@ -37,7 +37,7 @@ class Home extends React.Component {
             <td>{post.userId}</td>
             <td>
               {/* Dynamic link */}
-              <Link to={"/post/"+post.id}>
+              <Link to={"/"+post.id}>
                 {post.title}
               </Link>
             </td>
