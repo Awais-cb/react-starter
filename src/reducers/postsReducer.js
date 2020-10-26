@@ -21,6 +21,21 @@ const initState = {
     ]
 }
 const postsReducer = (state = initState, action) => {
+    console.log(action);
+    switch (action.type) {
+        case 'DELETE_POST':
+            let newPosts = state.posts.filter(post => {
+                return action.id != post.id 
+            })
+            console.log(newPosts)
+            return {
+                ...state,
+                posts: newPosts
+            } 
+            break;
+        default:
+            break;
+    }
     return state
 }
 

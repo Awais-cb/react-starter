@@ -67,7 +67,6 @@ class storeHome extends React.Component {
 }
 // Accessing state of central store as props in current component
 const mapStateToProps = (state) => {
-  console.log(state)
   return {
     posts: state.postsReducer.posts
   }
