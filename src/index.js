@@ -7,48 +7,61 @@ import './global/scss/index.scss';
 // Importing component to use
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+// Actual store
 import { createStore } from 'redux';
+// React's reaction with store
+import { Provider } from 'react-redux';
+// Importing reducers
+import allReducers from './reducers';
 
+/*
 // REDUX START
 // STORE -> GLOBALIZED STATE
 // ACTION -> EVENTS TO MODIFY STORE U DESCRIBE WHAT U WANNA DO (E.G I AM HUNGRY) (INCREMENT, DECREMENT)
 const increment = () => {
   return {
-    type : 'INCREMENT'
+    type: 'INCREMENT'
   }
 }
 const decrement = () => {
   return {
-    type : 'DECREMENT'
+    type: 'DECREMENT'
   }
 }
 
 // REDUCER -> TAKES ACTION TO STORE (we can have multiple reducers)
-const counter = (state = 0 , action) => {
+const counter = (state = 0, action) => {
   switch (action.type) {
     case 'INCREMENT':
-    return state + 1
-    break;
-  case 'DECREMENT':
-    return state - 1
-    break;
+      return state + 1
+      break;
+    case 'DECREMENT':
+      return state - 1
+      break;
   }
 }
 let store = createStore(counter)
-    
+
 // DISPLAY CONSOLE
-store.subscribe(() => { console.log('State Management ', store.getState() ) })
+store.subscribe(() => { console.log('State Management ', store.getState()) })
 
 // DISPATCH -> EXECUTES THE ACTION
 store.dispatch(increment());
 store.dispatch(decrement());
 // REDUX END
-
-
+*/
+let store = createStore(
+  allReducers,
+  // Configuring redux dev tools
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+)
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    {/* Store's is now accessible in the react app */}
+    <Provider store={store} >
+      <App />
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );

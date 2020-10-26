@@ -8,6 +8,8 @@ import About from './components/About';
 import Contact from './components/Contact';
 import HandleNinjas from './components/HandleNinjas';
 import Post from './components/Post';
+import storeHome from './components/storeHome';
+import storePost from './components/storePost';
 
 class App extends React.Component {
   render() {
@@ -19,6 +21,8 @@ class App extends React.Component {
           <Switch>
             {/* By default router props are only assigned to components defined as prop to <Route /> component to assign router props to other components we need to use a higher order component of react router named withRouter (see in <NavigationBar /> component) */}
             <Route exact path="/" component={Home}/>
+            <Route path="/store-home" component={storeHome}/>
+            <Route path="/store-post/:post_id" component={storePost}/>
             <Route path="/about" component={About}/>
             <Route path="/contact" component={Contact}/>
             <Route path="/ninjas" component={HandleNinjas}/>

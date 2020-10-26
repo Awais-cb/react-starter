@@ -18,6 +18,9 @@ const NavigationBar = (props) => {
                             <NavLink className="nav-link" to="/">Home</NavLink>
                         </li>
                         <li className="nav-item">
+                            <NavLink className="nav-link" to="/store-home">storeHome</NavLink>
+                        </li>
+                        <li className="nav-item">
                             <NavLink className="nav-link" to="/about">About</NavLink>
                         </li>
                         <li className="nav-item">
