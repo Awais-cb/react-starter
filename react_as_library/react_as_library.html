@@ -1,0 +1,97 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- React core -->
+        <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+        <!-- Glue between React core and actual DOM (ReactDOM) -->
+        <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+        <!-- THIS COMPONENT WILL DIRECTLY RUN IN BROWSER THE REASON IS BROWSER DON'T UNDERSTAND JSX WE NEED TO USE BABEL FOR THAT -->
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <title>Boiler Plate for ReactJS</title>
+</head>
+<body>
+    <div id="app"></div>
+    <!-- TELLING BABEL TO TRANSPILE THIS SCRIPT -->
+    <script type="text/babel">
+        class App extends React.Component {
+            // 2-> state is component's UI state at the moment we can also define state in a constructor method
+            state = {
+                name: 'Awais',
+                age: 26
+            }
+            // 2-> creating an event it takes event as default parameter
+            // 3-> to access this in an event use arrow methods
+            setStateDemo1 = (e) => {
+                console.log(this.state.name)
+                // 3-> updating the state
+                // not recommended way
+                // this.state.name = 'Awais Fiaz'
+                // is an asynchronous function to control it's flow one can use either [async await] or use callback to execute after setState  
+                this.setState({
+                    name: 'Awais Fiaz',
+                    age: 27
+                },() => {
+                    console.log(this.state.name)
+                })
+            }
+            // 3-> to access this in an event use arrow methods
+            setStateDemo2 = async (e) => {
+                console.log(this.state.name)
+                // is an asynchronous function to control it's flow one can use either [async await] or use callback to execute after setState  
+                await this.setState({
+                    name: 'Awais Fiaz', 
+                    age: 27
+                })
+                console.log(this.state.name)
+            }
+            handleMouseOver = (e) => {
+                console.log(e.target, e.pageX)
+            }
+            handleCopy (e) {
+                console.log('Try being original for once!')
+            }
+            handleChange = (e) => {
+                let eventValue = e.target.value;
+                this.setState({
+                    name: eventValue
+                })
+            }
+            handleSubmit = (e) => {
+                e.preventDefault()
+                console.log('Form submitted ' + this.state.name)
+            }
+            // class based components should must have render() function inside them 
+            // render function is responsible for rendering template on any element we want to render to
+            render () {
+                // the value in this function we are going to return is JSX template, its going to be in round brackets because it's going to be more than one line
+                return (
+                    // there should always be one root element at the top
+                    // we cannot use class keyword in JSX because in JS its a reserved keyword for creating classes we will use className instead
+                    <div className="app-content">
+                        <h1>Hey, Devs React is working without webpack setup</h1>
+                        {/* to output dynamic content use curly braces (JSX comments example) */}
+                        <p>{ Math.random() * 10 }</p>
+                        {/* 2-> Accessing component state */}
+                        <h3>My name is : { this.state.name }</h3>
+                        <h3>My age is : { this.state.age }</h3>
+                        {/* 2-> Binding an event */}
+                        {/* 2-> We cannot bind event like this.handleClick() because this will automatically invoke the function on content load */}
+                        <p><button onClick={this.setStateDemo1}>Set state demo 1</button></p>
+                        <p><button onClick={this.setStateDemo2}>Set state demo 2</button></p>
+                        <p><button onMouseOver={this.handleMouseOver}>Hover me</button></p>
+                        <p onCopy={this.handleCopy}>What we think we become</p>
+                        {/* 3-> To capture "enter" event use on submit instead of onClick on button */}
+                        <form onSubmit={this.handleSubmit}>
+                            <input type="text" onChange={this.handleChange}/>
+                            <button>Update Data</button>    
+                        </form>
+                    </div>
+                )
+            }
+        }
+        // above JS script part is pure JS and React but now we want to glue that to our actual DOM to do that we need to bind our component to the element were we want to render component we will do that using ReactDOM
+        ReactDOM.render(<App/>, document.getElementById('app'));
+    </script>
+</body>
+</html>
